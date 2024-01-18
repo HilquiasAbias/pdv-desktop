@@ -2,7 +2,7 @@
     "name": "pdv-desktop",
     "version": "16.0.0",
     "license": "PrimeNG Commercial",
-    "main" : "main.js",
+    "main": "main.js",
     "scripts": {
         "electron": "electron .",
         "ng": "ng",
@@ -52,6 +52,7 @@
         "karma-coverage": "~2.2.0",
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
+        "prisma": "^5.8.1",
         "typescript": "~5.1.3"
     }
 }
