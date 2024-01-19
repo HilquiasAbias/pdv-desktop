@@ -28,22 +28,27 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Usuários',
                         icon: 'pi pi-fw pi-users',
-                        routerLink: ['/app/users']
+                        routerLink: ['/app/pdv/users']
                     },
                     {
                         label: 'Estoque',
                         icon: 'pi pi-fw pi-box',
-                        routerLink: ['/app/store']
+                        routerLink: ['/app/pdv/store']
                     },
                     {
                         label: 'Caixa',
                         icon: 'pi pi-fw pi-dollar',
-                        routerLink: ['/app/cashier']
+                        routerLink: ['/app/pdv/cashier']
                     },
                     {
                         label: 'Fornecedores',
                         icon: 'pi pi-fw pi-truck',
-                        routerLink: ['/app/suppliers']
+                        routerLink: ['/app/pdv/suppliers']
+                    },
+                    {
+                        label: 'Login',
+                        icon: 'pi pi-fw pi-sign-in',
+                        routerLink: ['/app/pdv/login']
                     }
                 ]
             },

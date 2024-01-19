@@ -1,12 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CacheService } from './../../../services/cache.service';
+import { Subscription } from 'rxjs';
+
 @Component({
     templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-    constructor() {}
+    user: any;
+    titlecase: string = 'Dashboard';
+    private cacheSubscription: Subscription;
 
-    async ngOnInit(): Promise<void> {}
+    constructor(private cacheService: CacheService) {}
+
+    async ngOnInit(): Promise<void> {
+        this.cacheSubscription = this.cacheService.cache$.subscribe(
+            user => {
+                this.user = user;
+            }
+        );
+    }
 
     ngOnDestroy() {}
 }

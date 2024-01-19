@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'http://laica.ifrn.edu.br/access-control/gateway/'
+  api: 'http://localhost:3000'
 };
