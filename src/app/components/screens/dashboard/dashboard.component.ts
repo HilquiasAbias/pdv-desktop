@@ -16,9 +16,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     async ngOnInit(): Promise<void> {
         this.cacheSubscription = this.cacheService.cache$.subscribe(
             user => {
-                this.user = user;
+                this.user = JSON.parse(JSON.stringify(user));
             }
         );
+        console.log(this.user);
     }
 
     ngOnDestroy() {}

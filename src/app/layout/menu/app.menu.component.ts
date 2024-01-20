@@ -18,7 +18,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Inicio',
                 items: [
-                    { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/'] }
+                    { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['app/dashboard'] }
                 ]
             },
             {
@@ -28,27 +28,27 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Usuários',
                         icon: 'pi pi-fw pi-users',
-                        routerLink: ['/app/pdv/users']
+                        routerLink: ['app/users']
                     },
                     {
                         label: 'Estoque',
                         icon: 'pi pi-fw pi-box',
-                        routerLink: ['/app/pdv/store']
+                        routerLink: ['app/store']
                     },
                     {
                         label: 'Caixa',
                         icon: 'pi pi-fw pi-dollar',
-                        routerLink: ['/app/pdv/cashier']
+                        routerLink: ['app/cashier']
                     },
                     {
                         label: 'Fornecedores',
                         icon: 'pi pi-fw pi-truck',
-                        routerLink: ['/app/pdv/suppliers']
+                        routerLink: ['app/suppliers']
                     },
                     {
                         label: 'Login',
                         icon: 'pi pi-fw pi-sign-in',
-                        routerLink: ['/app/pdv/login']
+                        routerLink: ['app/login']
                     }
                 ]
             },
