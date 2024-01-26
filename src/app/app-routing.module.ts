@@ -1,25 +1,37 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { NotfoundComponent } from './components/screens/notfound/notfound.component';
-import { AppLayoutComponent } from "./layout/app.layout.component";
+import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './shared/components';
+
+import { HomeRoutingModule } from './home/home-routing.module';
+import { DetailRoutingModule } from './detail/detail-routing.module';
+import { AppLayoutComponent } from './layout/app.layout.component';
+
+const routes: Routes = [
+  { 
+    path: '', 
+    loadChildren: () => import('./shared/components/screens/login/auth.module').then(m => m.AuthModule) 
+  },
+  {
+    path: 'app',
+    component: AppLayoutComponent,
+    children: [
+      { path: '', loadChildren: () => import('./shared/components/screens/screens.module').then(m => m.ScreensModule) },
+      { path: 'profile', loadChildren: () => import('./shared/components/screens/profile/profile.module').then(m => m.ProfileModule) },
+      { path: 'documentation', loadChildren: () => import('./shared/components/screens/documentation/documentation.module').then(m => m.DocumentationModule) },
+    ]
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
+];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot([
-            {
-                path: '', component: AppLayoutComponent,
-                children: [
-                    { path: '', loadChildren: () => import('./components/screens/dashboard/dashboard.module').then(m => m.DashboardModule) },
-                    { path: 'app', loadChildren: () => import('./components/screens/screens.module').then(m => m.ScreensModule) },
-                    { path: 'documentation', loadChildren: () => import('./components/screens/documentation/documentation.module').then(m => m.DocumentationModule) },
-                ]
-            },
-            { path: 'auth', loadChildren: () => import('./components/screens/auth/auth.module').then(m => m.AuthModule) },
-            { path: 'notfound', component: NotfoundComponent },
-            { path: '**', redirectTo: '/notfound' },
-        ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
-    ],
-    exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {}),
+    HomeRoutingModule,
+    DetailRoutingModule
+  ],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

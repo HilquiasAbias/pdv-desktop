@@ -1,6 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { LayoutService } from '../service/app.layout.service';
+import { ElectronService } from '../../core/services';
 
 @Component({
     selector: 'app-menu',
@@ -11,14 +12,14 @@ export class AppMenuComponent implements OnInit {
 
     model: any[] = [];
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService, public electronService: ElectronService) { }
 
     ngOnInit() {
         this.model = [
             {
                 label: 'Inicio',
                 items: [
-                    { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/'] }
+                    { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/app/dashboard'] }
                 ]
             },
             {
@@ -44,6 +45,13 @@ export class AppMenuComponent implements OnInit {
                         label: 'Fornecedores',
                         icon: 'pi pi-fw pi-truck',
                         routerLink: ['/app/suppliers']
+                    },
+                    {
+                        label: 'Sair',
+                        icon: 'pi pi-fw pi-sign-out',
+                        command: () => {
+                            this.electronService.logout();
+                        }
                     }
                 ]
             },

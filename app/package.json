@@ -1,0 +1,13 @@
+{
+  "name": "pdv-desktop-app",
+  "description": "PDV desktop electron app",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "version": "13.0.0",
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+  }
+}
