@@ -11,6 +11,8 @@
 # Sistema PDV
 Este repositório destina-se ao desenvolvimento de um sistema de **Ponto de Venda** que pode ser usado por quiosques, lojas, mercados ou qualquer outro estabelecimento similar.
 
+Trata-se de uma aplicação desktop que consome uma API que está sendo desenvolvida [em outro repositório](https://github.com/HilquiasAbias/pdv-api)
+
 # Funcionalidades
 
   | Nome       | Implementado |
