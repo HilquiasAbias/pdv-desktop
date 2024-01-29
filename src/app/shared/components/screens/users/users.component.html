@@ -1,7 +1,7 @@
 <div class="grid">
   <div class="col-12">
     <div class="card px-6 py-6">
-      <!-- <p-toast></p-toast> -->
+      <p-toast></p-toast>
 
       <p-toolbar styleClass="mb-4">
         <ng-template pTemplate="left">
@@ -11,7 +11,7 @@
         </ng-template>
         <ng-template pTemplate="right">
           <div class="mr-5px">
-            <p-multiSelect [style]="{'max-width':'150px'}" [options]="roles" [(ngModel)]="selectedRoles" optionLabel="label" [filter]="false" scrollHeight="250px" placeholder="Papéis"></p-multiSelect>
+            <p-dropdown [options]="roles" [(ngModel)]="selectedRole" optionLabel="label" [showClear]="true" placeholder="Cargo"></p-dropdown>
           </div>
           <div class="mr-5px">
             <input pInputText id="searchName" [(ngModel)]="searchName" placeholder="Nome" />
@@ -61,20 +61,20 @@
           <div style="display: inline-flex; width: 100%;">
             <div class="field" style="width: 50%; padding-right: 20px;">
               <label for="name">Nome</label>
-              <input type="text" pInputText id="name" [(ngModel)]="createUserModel!!.name" required [ngClass]="{'ng-invalid ng-dirty' : requiredField(createUserModel!.name)}"/>
-              <small class="ng-dirty ng-invalid" *ngIf="requiredField(createUserModel!.name)">Nome é obrigatório.</small>
+              <input type="text" pInputText id="name" [(ngModel)]="createUserModel.name" required [ngClass]="{'ng-invalid ng-dirty' : requiredField(createUserModel.name)}"/>
+              <small class="ng-dirty ng-invalid" *ngIf="requiredField(createUserModel.name)">Nome é obrigatório.</small>
             </div>
             <div class="field" style="width: 50%;">
               <label for="name">E-mail</label>
-              <input #userEmail="ngModel" type="email" [email]="true" pInputText id="email" aria-describedby="email_msg" [(ngModel)]="createUserModel!.email" required [ngClass]="{'ng-invalid ng-dirty' : requiredField(createUserModel!.email)}"/>
-              <small id="email_msg" class="ng-dirty ng-invalid" *ngIf="requiredField(createUserModel!.email)">E-mail é obrigatório.</small>
+              <input #userEmail="ngModel" type="email" [email]="true" pInputText id="email" aria-describedby="email_msg" [(ngModel)]="createUserModel.email" required [ngClass]="{'ng-invalid ng-dirty' : requiredField(createUserModel.email)}"/>
+              <small id="email_msg" class="ng-dirty ng-invalid" *ngIf="requiredField(createUserModel.email)">E-mail é obrigatório.</small>
             </div>
           </div>
           <div style="display: inline-flex; width: 100%;">
             <div class="field" style="width: 50%; padding-right: 20px;">
               <label for="password">Senha</label>
-              <p-password id="password" [(ngModel)]="createUserModel!.password" [toggleMask]="true" required [ngClass]="{'ng-invalid ng-dirty' : requiredField(createUserModel!.password)}"></p-password>
-              <small class="ng-dirty ng-invalid" *ngIf="requiredField(createUserModel!.password)">Senha é obrigatório.</small>
+              <p-password id="password" [(ngModel)]="createUserModel.password" [toggleMask]="true" required [ngClass]="{'ng-invalid ng-dirty' : requiredField(createUserModel.password)}"></p-password>
+              <small class="ng-dirty ng-invalid" *ngIf="requiredField(createUserModel.password)">Senha é obrigatório.</small>
             </div>
             <div class="field" style="width: 50%;">
               <label for="password2">Confirmar senha</label>
@@ -85,8 +85,8 @@
           <div style="display: inline-flex; width: 100%;">
             <div class="field" style="width: 100%;">
               <label for="password">Cargo</label>
-              <p-selectButton [options]="roles" [(ngModel)]="createUserModel!.role" optionLabel="label" optionValue="value"></p-selectButton>
-              <small class="ng-dirty ng-invalid" *ngIf="requiredFieldArray([createUserModel!.role])">Perfil é obrigatório.</small>
+              <p-selectButton [options]="roles" [(ngModel)]="createUserModel.role" optionLabel="label" optionValue="value"></p-selectButton>
+              <small class="ng-dirty ng-invalid" *ngIf="requiredFieldArray([createUserModel.role])">Perfil é obrigatório.</small>
             </div>
           </div>
         </div>

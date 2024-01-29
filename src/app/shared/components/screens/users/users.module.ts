@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PasswordModule } from 'primeng/password';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PaginatorModule } from 'primeng/paginator';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
     imports: [
@@ -40,6 +41,7 @@ import { PaginatorModule } from 'primeng/paginator';
         PaginatorModule,
         MultiSelectModule
     ],
-    declarations: [UsersComponent]
+    declarations: [UsersComponent],
+    providers: [MessageService]
 })
 export class UsersModule { }
